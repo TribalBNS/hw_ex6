@@ -65,5 +65,6 @@ public class AutomationPracticeFormTests {
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldBe(visible).shouldHave(text("Label"), text("Values"));
         $(".table-responsive").shouldHave(text(firstName), text(lastName), text(userEmail), text(userNumber), text(gender), text(bdayDay + " " + bdayMonth + "," + bdayYear), text(subjects), text(hobby1 + ", " + hobby2), text(pictureName), text(currentAddress), text(state + " " + city));
+        $("#closeLargeModal").click();
     }
 }
