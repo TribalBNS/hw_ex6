@@ -2,29 +2,13 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
-import static pages.components.StringArrayToStringComponent.convertStringArrayToString;
+import static utils.StringArrayToStringUtil.convertStringArrayToString;
+import static tests.TestData.*;
 
 public class AutomationPracticeFormWithPageObjectsTests extends TestBase {
 
     @Test
     void fillFormTest() {
-        String firstName = "Nick";
-        String lastName = "Bel";
-        String userEmail = "123@gmail.com";
-        String userNumber = "5555135555";
-        String gender = "Male";
-        String bdayMonth = "January";
-        String bdayYear = "1980";
-        String bdayDay = "10";
-        String[] subjects = {"Computer Science", "English"};
-        String[] hobbies = {"Sports", "Music"};
-        String pictureName = "1.jpeg";
-        File img = new File("src/test/resources/" + pictureName);
-        String currentAddress = "Address 123";
-        String state = "NCR";
-        String city = "Delhi";
 
         registrationPage.openPage()
                 .setFirstName(firstName)
@@ -32,7 +16,7 @@ public class AutomationPracticeFormWithPageObjectsTests extends TestBase {
                 .setUserEmail(userEmail)
                 .setGender(gender)
                 .setUserNumber(userNumber)
-                .setDateOfBirth(bdayDay, bdayMonth, bdayYear)
+                .setDateOfBirth(birthDateDay, birthDateMonth, birthDateYear)
                 .setSubjects(subjects)
                 .setHobbies(hobbies)
                 .setPhoto(img)
@@ -46,7 +30,7 @@ public class AutomationPracticeFormWithPageObjectsTests extends TestBase {
                 .verifyResults("Student Email", userEmail)
                 .verifyResults("Gender", gender)
                 .verifyResults("Mobile", userNumber)
-                .verifyResults("Date of Birth", bdayDay + " " + bdayMonth + "," + bdayYear)
+                .verifyResults("Date of Birth", birthDateDay + " " + birthDateMonth + "," + birthDateYear)
                 .verifyResults("Subjects", convertStringArrayToString(subjects, ", "))
                 .verifyResults("Hobbies", convertStringArrayToString(hobbies, ", "))
                 .verifyResults("Picture", pictureName)

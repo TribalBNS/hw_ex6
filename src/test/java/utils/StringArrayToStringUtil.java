@@ -1,6 +1,6 @@
-package pages.components;
+package utils;
 
-public class StringArrayToStringComponent {
+public class StringArrayToStringUtil {
     public static String convertStringArrayToString(String[] strArr, String delimiter) {
         StringBuilder sb = new StringBuilder();
         for (String str : strArr)
