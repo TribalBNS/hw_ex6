@@ -2,7 +2,6 @@ package tests;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import utils.CityAccordingToState;
-import utils.MaxDayAccordingToMonth;
 import utils.RandomUtils;
 
 import java.io.File;
@@ -28,7 +27,7 @@ public class TestData {
             gender = RandomUtils.RandomStringFromArray(genderChoices),
             birthDateMonth = RandomUtils.RandomStringFromArray(birthDateMonthChoices),
             birthDateYear = Integer.toString(RandomUtils.RandomIntInRange(1950, 2000)),
-            birthDateDay = Integer.toString(RandomUtils.RandomIntInRange(1, MaxDayAccordingToMonth.MaxAvailableDay(birthDateMonth, birthDateYear))),
+            birthDateDay = RandomUtils.RandomBirthdayDay(birthDateMonth, birthDateYear),
             pictureName = "1.jpeg",
             currentAddress = RandomStringUtils.randomAlphanumeric(RandomUtils.RandomIntInRange(10, 50)),
             state = RandomUtils.RandomStringFromArray(stateChoices),
